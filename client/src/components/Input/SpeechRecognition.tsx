@@ -60,8 +60,12 @@ const useSpeechRecognition = (ask) => {
     if (event) {
       event.preventDefault();
     }
-    setIsListening(prevIsListening => !prevIsListening);
-    console.log('Toggle Listening');
+    if (isSpeechSupported) {
+      setIsListening(prevIsListening => !prevIsListening);
+      console.log('Toggle Listening - Speech Recognition Supported');
+    } else {
+      console.log('Toggle Listening - Speech Not Supported');
+    }
   };
 
   return { isSpeechSupported, isListening, text, toggleListening };
