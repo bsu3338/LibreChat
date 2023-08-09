@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const useSpeechRecognition = (ask, isListening, setIsListening) => {
-  const [isListening, setIsListening] = useState(false);
+  //const [isListening, setIsListening] = useState(false);
   const [text, setText] = useState('');
 
   useEffect(() => {
