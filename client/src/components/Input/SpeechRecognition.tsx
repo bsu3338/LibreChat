@@ -64,24 +64,6 @@ const useSpeechRecognition = (ask) => {
     console.log('Toggle Listening');
   };
 
-  const handleKeyDown = (event) => {
-    if (event.shiftKey && event.altKey && event.key === 'L') {
-      console.log('Speech Supported', isSpeechSupported);
-      if (isSpeechSupported) {
-        console.log('Toggle Ran from KeyStroke');
-        toggleListening();
-      }
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  });
-
   return { isSpeechSupported, isListening, text, toggleListening };
 };
 
