@@ -31,7 +31,6 @@ export default function TextChat({ isSearchView = false }) {
   const isNotAppendable = latestMessage?.unfinished & !isSubmitting || latestMessage?.error;
   const { conversationId, jailbreak } = conversation || {};
   const [isListening, setIsListening] = useState(false);
-  const { isSpeechSupported, text: speechText } = useSpeechRecognition(ask, isListening, toggleListening);
   useKeyboardShortcuts(toggleListening);
   
   useEffect(() => {
@@ -150,6 +149,8 @@ export default function TextChat({ isSearchView = false }) {
   const toggleListening = () => {
     setIsListening(prevIsListening => !prevIsListening);
   };
+
+  const { isSpeechSupported, text: speechText } = useSpeechRecognition(ask, isListening, toggleListening);
   
   return (
     <>
