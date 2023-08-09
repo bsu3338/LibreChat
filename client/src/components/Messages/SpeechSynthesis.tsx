@@ -27,7 +27,7 @@ function useSpeechSynthesis() {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, []);
+  }, [isSpeechEnabled]);
   
   useEffect(() => {
     if (!isSpeechEnabled || !textToSpeak) return;
