@@ -68,9 +68,9 @@ export default function TextChat({ isSearchView = false }) {
   const submitMessage = () => {
     ask({ text });
     setText('');
-    if (isListening) {
-      toggleListening();
-    }
+    //if (isListening) {
+    //  toggleListening();
+    //}
   };
 
   const handleStopGenerating = (e) => {
