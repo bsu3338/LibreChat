@@ -12,18 +12,18 @@ function useSpeechSynthesis(text) {
 
     const handleKeyDown = (event) => {
       if (event.shiftKey && event.altKey && event.key === 'P') {
-        setIsEnabled((prevEnabled) => !prevEnabled);
-        console.log('Text to Speech', isEnabled);
-        if (!isEnabled) {
-          speak();
-        }
+        setIsEnabled((prevEnabled) => {
+          const newState = !prevEnabled;
+          if (!newState) {
+            speak();
+          }
+          return newState;
+        });
       }
     };
 
-    if (isEnabled) {
-      window.addEventListener('keydown', handleKeyDown);
-    }
-
+    window.addEventListener('keydown', handleKeyDown);
+    
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
