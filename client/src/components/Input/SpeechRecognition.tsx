@@ -64,7 +64,7 @@ const useSpeechRecognition = (ask) => {
   };
 
   const handleKeyDown = (event) => {
-    if (e.shiftKey && e.altKey && e.key === 'L') {
+    if (event.shiftKey && event.altKey && event.key === 'L') {
       if (isSpeechSupported) {
         toggleListening();
       }
