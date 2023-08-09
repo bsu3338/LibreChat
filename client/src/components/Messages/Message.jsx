@@ -45,11 +45,12 @@ export default function Message({
   //   console.log('unfinished:', unfinished);
   // }, [isSubmitting, unfinished]);
 
+  useSpeechSynthesis(text);
+  
   useEffect(() => {
     if (blinker && !abortScroll) {
       scrollToBottom();
     }
-    useSpeechSynthesis(text);
   }, [isSubmitting, blinker, text, scrollToBottom]);
 
   useEffect(() => {
