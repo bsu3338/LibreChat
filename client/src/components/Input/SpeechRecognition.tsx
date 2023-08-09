@@ -47,7 +47,9 @@ const useSpeechRecognition = (ask) => {
 
     if (isListening) {
       recognition.start();
-    } 
+    } else {
+      recognition.stop();
+    }
 
     return () => {
       recognition.stop();
