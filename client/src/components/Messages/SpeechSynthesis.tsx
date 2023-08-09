@@ -1,37 +1,42 @@
 import { useState, useEffect } from 'react';
 
 function useSpeechSynthesis() {
+  const [isEnabled, setIsEnabled] = useState(false);
+  const [textToSpeak, setTextToSpeak] = useState('');
+
   const synthesizeSpeech = (text) => {
-    const [isEnabled, setIsEnabled] = useState(false);
-    console.log('SpeechSynth',text);
-    useEffect(() => {
-      const speak = () => {
-        const synth = window.speechSynthesis;
-        const utterance = new SpeechSynthesisUtterance(text);
-        synth.speak(utterance);
-      };
+    setTextToSpeak(text);
+  };
 
-      const handleKeyDown = (event) => {
-        if (event.shiftKey && event.altKey && event.key === 'P') {
-          console.log('Speech Toggle');
-          setIsEnabled((prevEnabled) => {
-            const newState = !prevEnabled;
-            if (!newState) {
-              speak();
-            }
-            return newState;
-          });
-        }
-      };
+  useEffect(() => {
+    const speak = () => {
+      if (!isEnabled) return; // Don't speak if isEnabled is false
+      const synth = window.speechSynthesis;
+      const utterance = new SpeechSynthesisUtterance(textToSpeak);
+      synth.speak(utterance);
+    };
 
-      window.addEventListener('keydown', handleKeyDown);
-    
-      return () => {
-        window.removeEventListener('keydown', handleKeyDown);
-      };
-    }, [text, isEnabled]);
-  }
+    const handleKeyDown = (event) => {
+      if (event.shiftKey && event.altKey && event.key === 'P') {
+        console.log('Speech Toggle');
+        setIsEnabled((prevEnabled) => {
+          const newState = !prevEnabled;
+          if (newState) {
+            speak(); // Speak if isEnabled is being set to true
+          }
+          return newState;
+        });
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [textToSpeak, isEnabled]);
+
   return { synthesizeSpeech };
 }
-  
+
 export default useSpeechSynthesis;
