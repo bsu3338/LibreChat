@@ -12,6 +12,7 @@ function useSpeechSynthesis(text) {
 
     const handleKeyDown = (event) => {
       if (event.shiftKey && event.altKey && event.key === 'P') {
+        console.log('Speech Toggle');
         setIsEnabled((prevEnabled) => {
           const newState = !prevEnabled;
           if (!newState) {
