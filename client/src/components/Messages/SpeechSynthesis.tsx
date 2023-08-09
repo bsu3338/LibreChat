@@ -3,7 +3,7 @@ import useSpeechRecognition from '../Input/SpeechRecognition';
 
 function useSpeechSynthesis() {
   const [isSpeechEnabled, setIsSpeechEnabled] = useState(false);
-  const [isAutoListen, setIsAutoListe] = useState(false);
+  const [isAutoListen, setIsAutoListen] = useState(false);
   const [textToSpeak, setTextToSpeak] = useState('');
   // const { isSpeechSupported, isListening, toggleListening } = useSpeechRecognition();
 
@@ -16,12 +16,17 @@ function useSpeechSynthesis() {
     console.log('Toggle Text-To-Speech', !isSpeechEnabled);
   };
 
+  const toggleAutoListen = () => {
+    setIsSpeechEnabled(!isSpeechEnabled);
+    console.log('Toggle Text-To-Speech', !isSpeechEnabled);
+  };
+
   const handleKeyDown = (event) => {
     if (event.shiftKey && event.altKey && event.key === 'P') {
       toggleSpeechSynthesis();
     }
     if (event.shiftKey && event.altKey && event.key === 'O') {
-      toggleSpeechSynthesis();
+      toggleAutoListen();
     }
   };
 
