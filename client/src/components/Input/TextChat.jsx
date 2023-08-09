@@ -30,8 +30,9 @@ export default function TextChat({ isSearchView = false }) {
   const { ask, stopGenerating } = useMessageHandler();
   const isNotAppendable = latestMessage?.unfinished & !isSubmitting || latestMessage?.error;
   const { conversationId, jailbreak } = conversation || {};
-  const { isSpeechSupported, isListening, text: speechText } = useSpeechRecognition(ask);
-  useKeyboardShortcuts(ask);
+  const [isListening, setIsListening] = useState(false);
+  const { isSpeechSupported, text: speechText } = useSpeechRecognition(ask, isListening, toggleListening);
+  useKeyboardShortcuts(ask, toggleListening);
   
   useEffect(() => {
     if (isListening && speechText) {
@@ -146,6 +147,10 @@ export default function TextChat({ isSearchView = false }) {
     isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   }
 
+  const toggleListening = () => {
+    setIsListening(prevIsListening => !prevIsListening);
+  };
+  
   return (
     <>
       <div
