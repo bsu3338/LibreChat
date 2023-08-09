@@ -14,6 +14,20 @@ function useSpeechSynthesis() {
     setIsSpeechEnabled(!isSpeechEnabled);
   };
 
+    const handleKeyDown = (event) => {
+    if (event.shiftKey && event.altKey && event.key === 'P') {
+      toggleSpeechSynthesis();
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+  
   useEffect(() => {
     if (!isSpeechEnabled || !textToSpeak) return;
 
