@@ -12,7 +12,7 @@ function useSpeechSynthesis() {
 
   const toggleSpeechSynthesis = () => {
     setIsSpeechEnabled(!isSpeechEnabled);
-    console.log('Toggle Text-To-Speech', isSpeechEnabled);
+    console.log('Toggle Text-To-Speech', !isSpeechEnabled);
   };
 
     const handleKeyDown = (event) => {
