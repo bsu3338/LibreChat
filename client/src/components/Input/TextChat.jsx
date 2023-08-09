@@ -5,6 +5,7 @@ import SubmitButton from './SubmitButton';
 import OptionsBar from './OptionsBar';
 import { EndpointMenu } from './EndpointMenu';
 import Footer from './Footer';
+import * from './KeyboardShortcuts';
 import useSpeechRecognition from './SpeechRecognition';
 import { useMessageHandler, ThemeContext } from '~/hooks';
 import { cn } from '~/utils';
