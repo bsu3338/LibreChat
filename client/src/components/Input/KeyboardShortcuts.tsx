@@ -3,7 +3,7 @@ import useSpeechRecognition from './SpeechRecognition';
 import useSpeechSynthesis from '../Messages/SpeechSynthesis';
 
 const useKeyboardShortcuts = () => {
-  const { toggleListening } = useSpeechRecognition();
+  const { toggleSpeechRecognition } = useSpeechRecognition();
   const { toggleSpeechSynthesis } = useSpeechSynthesis();
 
   useEffect(() => {
