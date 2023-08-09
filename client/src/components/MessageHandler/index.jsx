@@ -12,7 +12,7 @@ export default function MessageHandler() {
   const setConversation = useSetRecoilState(store.conversation);
   const resetLatestMessage = useResetRecoilState(store.latestMessage);
   const { token } = useAuthContext();
-  const { speechSynthesis } = useSpeechSynthesis();
+  const { synthesizeSpeech } = useSpeechSynthesis();
 
   const { refreshConversations } = store.useConversations();
 
@@ -211,7 +211,7 @@ export default function MessageHandler() {
         console.log('final', data);
         console.log('final text', data.responseMessage.text);
         if (data.responseMessage.text) {
-          speechSynthesis(data.responseMessage.text);
+          synthesizeSpeech(data.responseMessage.text);
         }
       }
       if (data.created) {
