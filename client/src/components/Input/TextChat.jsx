@@ -91,9 +91,9 @@ export default function TextChat({ isSearchView = false }) {
       submitMessage();
     }
 
-    if (e.shiftKey && e.altKey && e.key === 'L') {
-      toggleListening();
-    }
+    //if (e.shiftKey && e.altKey && e.key === 'L') {
+    //  toggleListening();
+    //}
 
   };
 
