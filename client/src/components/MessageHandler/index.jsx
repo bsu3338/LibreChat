@@ -208,6 +208,7 @@ export default function MessageHandler() {
       if (data.final) {
         finalHandler(data, { ...submission, message });
         console.log('final', data);
+        useSpeechSynthesis(data.responseMessage.text);
       }
       if (data.created) {
         message = {
