@@ -11,7 +11,7 @@ function useSpeechSynthesis(text) {
     };
 
     const handleKeyDown = (event) => {
-      if (event.shiftKey && event.altKey && event.code === 'KeyP') {
+      if (event.shiftKey && event.altKey && event.key === 'P') {
         setIsEnabled((prevEnabled) => !prevEnabled);
         console.log('Text to Speech', isEnabled);
         if (!isEnabled) {
