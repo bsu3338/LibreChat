@@ -78,7 +78,7 @@ const useSpeechRecognition = (ask) => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isListening]);
+  });
 
   return { isSpeechSupported, isListening, text, toggleListening };
 };
