@@ -3,7 +3,7 @@ import useSpeechRecognition from './SpeechRecognition';
 import useSpeechSynthesis from '../Messages/SpeechSynthesis';
 
 const useKeyboardShortcuts = () => {
-  const { toggleSpeechRecognition } = useSpeechRecognition();
+  const { toggleListening } = useSpeechRecognition();
   const { toggleSpeechSynthesis } = useSpeechSynthesis();
 
   useEffect(() => {
@@ -11,7 +11,7 @@ const useKeyboardShortcuts = () => {
       if (event.shiftKey && event.altKey) {
         if (event.key === 'L') {
           // Logic related to speech recognition
-          toggleSpeechRecognition();
+          toggleListening();
         }
         if (event.key === 'P') {
           // Logic related to speech synthesis
