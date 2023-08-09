@@ -12,7 +12,6 @@ import { cn } from '~/utils';
 import store from '~/store';
 
 export default function TextChat({ isSearchView = false }) {
-  useKeyboardShortcuts();
   const inputRef = useRef(null);
   const isComposing = useRef(false);
 
@@ -32,7 +31,8 @@ export default function TextChat({ isSearchView = false }) {
   const isNotAppendable = latestMessage?.unfinished & !isSubmitting || latestMessage?.error;
   const { conversationId, jailbreak } = conversation || {};
   const { isSpeechSupported, isListening, text: speechText } = useSpeechRecognition(ask);
-
+  useKeyboardShortcuts(ask);
+  
   useEffect(() => {
     if (isListening && speechText) {
       setText(speechText);
