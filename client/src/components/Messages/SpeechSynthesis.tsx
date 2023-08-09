@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import useSpeechRecognition from '../Input/SpeechRecognition';
 
 function useSpeechSynthesis() {
   const [isSpeechEnabled, setIsSpeechEnabled] = useState(false);
