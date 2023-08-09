@@ -29,7 +29,7 @@ const useKeyboardShortcuts = () => {
     return () => {
       window.removeEventListener('keydown', handleGlobalKeyDown);
     };
-  }, [toggleSpeechRecognition, toggleSpeechSynthesis]); // You can include dependencies if needed
+  }, [toggleListening, toggleSpeechSynthesis]);
 };
 
 export default useKeyboardShortcuts;
