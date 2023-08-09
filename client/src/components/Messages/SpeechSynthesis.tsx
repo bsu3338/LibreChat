@@ -21,23 +21,6 @@ function useSpeechSynthesis() {
     console.log('Toggle Text-To-Speech', !isSpeechEnabled);
   };
 
-  const handleKeyDown = (event) => {
-    if (event.shiftKey && event.altKey && event.key === 'P') {
-      toggleSpeechSynthesis();
-    }
-    if (event.shiftKey && event.altKey && event.key === 'O') {
-      toggleAutoListen();
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isSpeechEnabled]);
-
   useEffect(() => {
     if (!isSpeechEnabled || !textToSpeak) return;
 
