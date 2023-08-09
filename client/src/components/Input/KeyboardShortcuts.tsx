@@ -2,32 +2,34 @@ import { useEffect } from 'react';
 import useSpeechRecognition from './SpeechRecognition';
 import useSpeechSynthesis from '../Messages/SpeechSynthesis';
 
-const handleGlobalKeyDown = (event) => {
+const useKeyboardShortcuts = () => {
   const { toggleListening } = useSpeechRecognition();
   const { toggleSpeechSynthesis } = useSpeechSynthesis();
 
-  
-  if (event.shiftKey && event.altKey) {
-    if (event.key === 'L') {
-      // Logic related to speech recognition
-      toggleSpeechRecognition();
-    }
-    if (event.key === 'P') {
-      // Logic related to speech synthesis
-      toggleSpeechSynthesis();
-    }
-    if (event.key === 'O') {
-      // Other logic as needed
-      //toggleAutoListen();
-    }
-  }
+  useEffect(() => {
+    const handleGlobalKeyDown = (event) => {
+      if (event.shiftKey && event.altKey) {
+        if (event.key === 'L') {
+          // Logic related to speech recognition
+          toggleSpeechRecognition();
+        }
+        if (event.key === 'P') {
+          // Logic related to speech synthesis
+          toggleSpeechSynthesis();
+        }
+        if (event.key === 'O') {
+          // Other logic as needed
+          //toggleAutoListen();
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleGlobalKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleGlobalKeyDown);
+    };
+  }, [toggleSpeechRecognition, toggleSpeechSynthesis]); // You can include dependencies if needed
 };
 
-// Inside a component or higher-order function:
-useEffect(() => {
-  window.addEventListener('keydown', handleGlobalKeyDown);
-
-  return () => {
-    window.removeEventListener('keydown', handleGlobalKeyDown);
-  };
-}, []);
+export default useKeyboardShortcuts;
