@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useRecoilValue, useResetRecoilState, useSetRecoilState } from 'recoil';
 import { SSE, createPayload } from 'librechat-data-provider';
 import store from '~/store';
+import useSpeechSynthesis from '../Messages/SpeechSynthesis';
 import { useAuthContext } from '~/hooks/AuthContext';
 
 export default function MessageHandler() {
