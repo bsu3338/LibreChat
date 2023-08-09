@@ -2,8 +2,7 @@ import { useEffect } from 'react';
 import useSpeechRecognition from './SpeechRecognition';
 import useSpeechSynthesis from '../Messages/SpeechSynthesis';
 
-const useKeyboardShortcuts = (ask) => {
-  const { toggleListening } = useSpeechRecognition(ask);
+const useKeyboardShortcuts = (toggleListening) => {
   const { toggleSpeechSynthesis } = useSpeechSynthesis();
 
   useEffect(() => {
@@ -29,7 +28,7 @@ const useKeyboardShortcuts = (ask) => {
     return () => {
       window.removeEventListener('keydown', handleGlobalKeyDown);
     };
-  }, [toggleListening, toggleSpeechSynthesis, ask]);
+  }, [toggleListening, toggleSpeechSynthesis]);
 };
 
 export default useKeyboardShortcuts;
