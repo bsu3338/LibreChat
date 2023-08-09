@@ -21,3 +21,5 @@ function useSpeechSynthesis(text) {
     };
   }, [text]);
 }
+
+export default useSpeechSynthesis;
