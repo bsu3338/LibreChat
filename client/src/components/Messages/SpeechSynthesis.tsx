@@ -5,9 +5,9 @@ function useSpeechSynthesis() {
   const [textToSpeak, setTextToSpeak] = useState('');
 
   const synthesizeSpeech = (text) => {
-    if (isSpeechEnabled) {
+    //if (isSpeechEnabled) {
       setTextToSpeak(text);
-    }
+    //}
   };
 
   const toggleSpeechSynthesis = () => {
