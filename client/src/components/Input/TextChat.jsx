@@ -5,13 +5,14 @@ import SubmitButton from './SubmitButton';
 import OptionsBar from './OptionsBar';
 import { EndpointMenu } from './EndpointMenu';
 import Footer from './Footer';
-import './KeyboardShortcuts';
+import { useKeyboardShortcuts } from './KeyboardShortcuts';
 import useSpeechRecognition from './SpeechRecognition';
 import { useMessageHandler, ThemeContext } from '~/hooks';
 import { cn } from '~/utils';
 import store from '~/store';
 
 export default function TextChat({ isSearchView = false }) {
+  useKeyboardShortcuts();
   const inputRef = useRef(null);
   const isComposing = useRef(false);
 
