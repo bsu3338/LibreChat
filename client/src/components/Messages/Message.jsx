@@ -45,7 +45,7 @@ export default function Message({
   //   console.log('unfinished:', unfinished);
   // }, [isSubmitting, unfinished]);
 
-  useSpeechSynthesis(last);
+  useSpeechSynthesis(message);
   
   useEffect(() => {
     if (blinker && !abortScroll) {
