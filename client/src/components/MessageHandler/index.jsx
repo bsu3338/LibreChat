@@ -12,7 +12,7 @@ export default function MessageHandler() {
   const setConversation = useSetRecoilState(store.conversation);
   const resetLatestMessage = useResetRecoilState(store.latestMessage);
   const { token } = useAuthContext();
-  const { speechSynthesis } = useSpeechSynthesis();
+  const speechSynthesis = useSpeechSynthesis();
 
   const { refreshConversations } = store.useConversations();
 
