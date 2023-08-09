@@ -12,12 +12,12 @@ function useSpeechSynthesis() {
 
   const toggleSpeechSynthesis = () => {
     setIsSpeechEnabled(!isSpeechEnabled);
+    console.log('Toggle Text-To-Speech', isSpeechEnabled);
   };
 
     const handleKeyDown = (event) => {
     if (event.shiftKey && event.altKey && event.key === 'P') {
       toggleSpeechSynthesis();
-      console.log('Toggle Text-To-Speech', isSpeechEnabled);
     }
   };
 
