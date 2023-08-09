@@ -13,7 +13,6 @@ import { useMessageHandler } from '~/hooks';
 import { useGetConversationByIdQuery } from 'librechat-data-provider';
 import { cn, getError } from '~/utils/';
 import store from '~/store';
-import useSpeechSynthesis from './SpeechSynthesis';
 
 export default function Message({
   conversation,
@@ -45,8 +44,6 @@ export default function Message({
   //   console.log('unfinished:', unfinished);
   // }, [isSubmitting, unfinished]);
 
-  useSpeechSynthesis(message?.text);
-  
   useEffect(() => {
     if (blinker && !abortScroll) {
       scrollToBottom();
