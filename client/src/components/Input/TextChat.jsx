@@ -32,7 +32,7 @@ export default function TextChat({ isSearchView = false }) {
   const { conversationId, jailbreak } = conversation || {};
   const [isListening, setIsListening] = useState(false);
   const { isSpeechSupported, text: speechText } = useSpeechRecognition(ask, isListening, toggleListening);
-  useKeyboardShortcuts(ask, toggleListening);
+  useKeyboardShortcuts(toggleListening);
   
   useEffect(() => {
     if (isListening && speechText) {
