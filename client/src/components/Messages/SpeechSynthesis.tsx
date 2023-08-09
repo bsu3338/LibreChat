@@ -1,6 +1,8 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 function useSpeechSynthesis(text) {
+  const [isEnabled, setIsEnabled] = useState(false);
+  console.log('SpeechSynth',text);
   useEffect(() => {
     const speak = () => {
       const synth = window.speechSynthesis;
@@ -10,16 +12,22 @@ function useSpeechSynthesis(text) {
 
     const handleKeyDown = (event) => {
       if (event.shiftKey && event.altKey && event.code === 'KeyP') {
-        speak();
+        setIsEnabled((prevEnabled) => !prevEnabled);
+        console.log('Text to Speech', isEnabled);
+        if (!isEnabled) {
+          speak();
+        }
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
+    if (isEnabled) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [text]);
+  }, [text, isEnabled]);
 }
 
 export default useSpeechSynthesis;
