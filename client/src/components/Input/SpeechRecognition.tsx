@@ -60,8 +60,8 @@ const useSpeechRecognition = (ask) => {
     if (event) {
       event.preventDefault();
     }
-    setIsListening((prevState) => !prevState);
-    console.log('Enable Listening',isListening);
+    setIsListening(true);
+    console.log('Enable Listening);
   };
 
   const handleKeyDown = (event) => {
