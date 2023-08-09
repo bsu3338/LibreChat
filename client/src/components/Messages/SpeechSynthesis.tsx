@@ -5,6 +5,7 @@ function useSpeechSynthesis() {
   const [isSpeechEnabled, setIsSpeechEnabled] = useState(false);
   const [isAutoListen, setIsAutoListe] = useState(false);
   const [textToSpeak, setTextToSpeak] = useState('');
+  const { isSpeechSupported, isListening, toggleListening } = useSpeechRecognition();
 
   const synthesizeSpeech = (text) => {
     setTextToSpeak(text);
