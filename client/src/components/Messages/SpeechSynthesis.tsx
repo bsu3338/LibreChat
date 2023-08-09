@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 function useSpeechSynthesis() {
   const [isSpeechEnabled, setIsSpeechEnabled] = useState(false);
+  const [isAutoListen, setIsAutoListe] = useState(false);
   const [textToSpeak, setTextToSpeak] = useState('');
 
   const synthesizeSpeech = (text) => {
@@ -15,6 +16,9 @@ function useSpeechSynthesis() {
 
   const handleKeyDown = (event) => {
     if (event.shiftKey && event.altKey && event.key === 'P') {
+      toggleSpeechSynthesis();
+    }
+    if (event.shiftKey && event.altKey && event.key === 'O') {
       toggleSpeechSynthesis();
     }
   };
