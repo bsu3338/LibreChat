@@ -64,8 +64,10 @@ const useSpeechRecognition = (ask) => {
   };
 
   const handleKeyDown = (event) => {
-    if (event.shiftKey && event.altKey && event.key === 'L') {
-      toggleSpeechSynthesis();
+    if (e.shiftKey && e.altKey && e.key === 'L') {
+      if (isSpeechSupported) {
+        toggleListening();
+      }
     }
   };
 
