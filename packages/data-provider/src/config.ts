@@ -187,8 +187,8 @@ export const rateLimitSchema = z.object({
 
 export const sdSchema = z.object({
   name: z.string(),
-  web_ui: z.string(),
-  params: z.record(z.any()).optional(),
+  webUI: z.string(),
+  parameterss: z.record(z.any()).optional(),
 });
 
 export type TSDProfile = z.infer<typeof sdSchema>;
