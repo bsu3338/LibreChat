@@ -2,7 +2,7 @@ import * as Tabs from '@radix-ui/react-tabs';
 import { SettingsTabValues } from 'librechat-data-provider';
 import type { TDialogProps } from '~/common';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '~/components/ui';
-import { GearIcon, DataIcon, UserIcon, ExperimentIcon, Plugin } from '~/components/svg';
+import { GearIcon, DataIcon, UserIcon, ExperimentIcon, MinimalPlugin } from '~/components/svg';
 import { General, Beta, Data, Account, Tools } from './SettingsTabs';
 import { useMediaQuery, useLocalize } from '~/hooks';
 import { cn } from '~/utils';
@@ -107,7 +107,7 @@ export default function Settings({ open, onOpenChange }: TDialogProps) {
                 value={SettingsTabValues.TOOLS}
                 style={{ userSelect: 'none' }}
               >
-                <Plugin className="icon-sm" />
+                <MinimalPlugin className="icon-sm" />
                 {localize('com_nav_setting_tools')}
               </Tabs.Trigger>
             </Tabs.List>
