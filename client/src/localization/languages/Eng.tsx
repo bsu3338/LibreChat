@@ -419,6 +419,8 @@ export default {
   com_nav_setting_data: 'Data controls',
   com_nav_setting_account: 'Account',
   com_nav_setting_tools: 'Tools',
+  com_nav_sd_default: 'Default',
+  com_nav_sd_profile: 'Stable Diffusion Profile',
   com_nav_language: 'Language',
   com_nav_lang_auto: 'Auto detect',
   com_nav_lang_english: 'English',
