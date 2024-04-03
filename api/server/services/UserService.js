@@ -68,6 +68,23 @@ const checkUserKeyExpiry = (expiresAt, message) => {
   }
 };
 
+const getToolsConfig = async ({ userId }) => {
+  const user =  await User.findById({ _id: userId });
+  if (!user.toolsConfig) {
+    throw new Error('User tool configuration not found');
+  }
+  return user.toolsConfig;
+};
+
+const updateToolsConfig = async ({ userId, toolsConfig }) => {
+  const user = await User.findOne({ _id: userId });
+  if (!user) {
+    throw new Error('User not found');
+  }
+  user.toolsConfig = toolsConfig;
+  return await user.save();
+};
+
 module.exports = {
   updateUserPluginsService,
   getUserKey,
@@ -75,4 +92,6 @@ module.exports = {
   updateUserKey,
   deleteUserKey,
   checkUserKeyExpiry,
+  getToolsConfig,
+  updateToolsConfig,
 };
