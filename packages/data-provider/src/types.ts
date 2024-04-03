@@ -84,7 +84,7 @@ export type TUser = {
   updatedAt: string;
 };
 
-export type TToolConfig = object;
+export type TToolsConfig = object;
 
 export type TGetConversationsResponse = {
   conversations: TConversation[];
