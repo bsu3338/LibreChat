@@ -79,10 +79,12 @@ export type TUser = {
   role: string;
   provider: string;
   plugins: string[];
-  toolsconfig: string[];
+  toolscConfig: string[];
   createdAt: string;
   updatedAt: string;
 };
+
+export type TToolConfig = object;
 
 export type TGetConversationsResponse = {
   conversations: TConversation[];
