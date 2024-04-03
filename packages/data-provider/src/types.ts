@@ -79,6 +79,7 @@ export type TUser = {
   role: string;
   provider: string;
   plugins: string[];
+  toolsconfig: string[];
   createdAt: string;
   updatedAt: string;
 };
