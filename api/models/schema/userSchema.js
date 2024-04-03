@@ -78,6 +78,10 @@ const userSchema = mongoose.Schema(
       type: Array,
       default: [],
     },
+    toolsConfig: {
+      type: Array,
+      default: [],
+    },
     refreshToken: {
       type: [Session],
     },
