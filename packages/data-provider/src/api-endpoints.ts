@@ -86,3 +86,5 @@ export const files = () => '/api/files';
 export const images = () => `${files()}/images`;
 
 export const avatar = () => `${images()}/avatar`;
+
+export const toolsConfig = () => '/api/toolsconfig';
