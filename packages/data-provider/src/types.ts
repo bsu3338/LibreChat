@@ -84,6 +84,11 @@ export type TUser = {
   updatedAt: string;
 };
 
+export type TPreference = {
+  name: string;
+  value: string;
+};
+
 export type TToolsConfig = object;
 
 export type TGetConversationsResponse = {
