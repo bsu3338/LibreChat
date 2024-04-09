@@ -1,4 +1,4 @@
-const { User, Key } = require('~/models');
+const { User, Key, Preference } = require('~/models');
 const { encrypt, decrypt } = require('~/server/utils');
 const { logger } = require('~/config');
 
@@ -68,21 +68,24 @@ const checkUserKeyExpiry = (expiresAt, message) => {
   }
 };
 
-const getToolsConfig = async ({ userId }) => {
-  const user =  await User.findById({ _id: userId });
-  if (!user.toolsConfig) {
-    throw new Error('User tool configuration not found');
+const getPreference = async ({ userId, name }) => {
+  const preferenceValue = await Preference.findOne({ userId, name }).lean();
+  if (!preferenceValue) {
+    throw new Error('User preference not found');
   }
-  return user.toolsConfig;
+  return preferenceValue.value;
 };
 
-const updateToolsConfig = async ({ userId, toolsConfig }) => {
-  const user = await User.findOne({ _id: userId });
-  if (!user) {
-    throw new Error('User not found');
-  }
-  user.toolsConfig = toolsConfig;
-  return await user.save();
+const updatePreference = async ({ userId, name, value }) => {
+  return await Preference.findOneAndUpdate(
+    { userId, name },
+    {
+      userId,
+      name,
+      value: value,
+    },
+    { upsert: true, new: true },
+  ).lean();
 };
 
 module.exports = {
@@ -92,6 +95,6 @@ module.exports = {
   updateUserKey,
   deleteUserKey,
   checkUserKeyExpiry,
-  getToolsConfig,
-  updateToolsConfig,
+  getPreference,
+  updatePreference,
 };
