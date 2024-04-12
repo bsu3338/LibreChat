@@ -8,7 +8,6 @@ const search = require('./search');
 const tokenizer = require('./tokenizer');
 const auth = require('./auth');
 const keys = require('./keys');
-const preferences = require('./preferences');
 const oauth = require('./oauth');
 const endpoints = require('./endpoints');
 const balance = require('./balance');
@@ -30,7 +29,6 @@ module.exports = {
   prompts,
   auth,
   keys,
-  preferences,
   oauth,
   user,
   tokenizer,
