@@ -19,7 +19,6 @@ const {
   updateFileUsage,
 } = require('./File');
 const Key = require('./Key');
-const Preference = require('./Preference');
 const User = require('./User');
 const Session = require('./Session');
 const Balance = require('./Balance');
@@ -27,7 +26,6 @@ const Balance = require('./Balance');
 module.exports = {
   User,
   Key,
-  Preference,
   Session,
   Balance,
 

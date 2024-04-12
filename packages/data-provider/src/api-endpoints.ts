@@ -17,12 +17,6 @@ export const revokeUserKey = (name: string) => `${keysEndpoint}/${name}`;
 
 export const revokeAllUserKeys = () => `${keysEndpoint}?all=true`;
 
-const preferencesEndpoint = '/api/preferences';
-
-export const preferences = () =>  preferencesEndpoint;
-
-export const preferencesQuery = (name: string) => `${preferencesEndpoint}?name=${name}`;
-
 export const abortRequest = (endpoint: string) => `/api/ask/${endpoint}/abort`;
 
 export const conversations = (pageNumber: string) => `/api/convos?pageNumber=${pageNumber}`;
